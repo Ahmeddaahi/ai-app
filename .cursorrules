@@ -1,0 +1,141 @@
+## Lessons
+
+1. Use `npx shadcn@latest add [component]` instead of `npx shadcn-ui@latest add [component]` when installing Shadcn UI components.
+2. In Next.js 14+, page props params must be typed as a Promise. Example:
+   ```typescript
+   type tParams = Promise<{ id: string }>
+   interface PageProps {
+     params: tParams
+   }
+   ```
+   Then await the params in the component:
+   ```typescript
+   export default async function Page(props: PageProps) {
+     const { id } = await props.params
+   }
+   ```
+3. Use `const session = await auth()` instead of `const session = await getServerSession(authOptions)` for Next.js authentication. The new `auth()` function is the recommended way to get the session in Next.js Auth v5.
+4. When importing `useRouter` from 'next/navigation', the component must be marked as a client component using the `'use client'` directive at the top of the file, as this hook only works on the client side.
+
+## Scratchpad
+
+### 1. Project Setup and Configuration [ ]
+
+- [ ] Initialize Next.js 15 project with TypeScript
+- [ ] Set up project structure and folders
+- [ ] Configure ESLint and Prettier
+- [ ] Install and configure dependencies:
+  - Shadcn UI components
+  - Lucide icons
+  - Zod for validation
+  - Zustand for state management
+  - Recharts for analytics
+  - Resend for emails
+  - Uploadthing for file uploads
+  - Prisma ORM
+  - PostgreSQL database
+  - NextAuth.js beta for authentication
+  - Stripe for payments
+
+### 2. Database and Authentication [ ]
+
+- [ ] Set up PostgreSQL database
+- [ ] Configure Prisma schema:
+  - User model
+  - Product model
+  - Category model
+  - Order model
+  - Review model
+  - Cart model
+- [ ] Implement NextAuth.js authentication:
+  - Email/Password
+  - OAuth providers (Google, GitHub)
+  - JWT handling
+  - Protected routes
+
+### 3. Core Features - Customer Side [ ]
+
+- [ ] Home Layout:
+  - Header with logo, search bar, and navigation
+  - Footer with links and social media
+- [ ] Homepage:
+  - Banner carousel
+  - Featured products
+  - Categories showcase
+- [ ] Products Catalog:
+  - Search functionality
+  - Filtering and sorting
+  - Product grid/list view
+  - Pagination
+- [ ] Product pages:
+  - Image gallery
+  - Product details
+  - Reviews and ratings
+  - Related products
+- [ ] Shopping cart:
+  - Add/remove items
+  - Update quantities
+  - Cart persistence
+- [ ] Checkout process:
+  - Shipping information
+  - Payment integration (Stripe)
+  - Order confirmation
+- [ ] User dashboard:
+  - Order history
+  - Profile management
+  - Saved addresses
+  - Wishlist
+
+### 4. Admin Dashboard [ ]
+
+- [ ] Admin authentication and authorization
+- [ ] Dashboard overview:
+  - Sales analytics
+  - Order statistics
+  - Customer insights
+  - Revenue charts
+- [ ] Product management:
+  - CRUD operations
+  - Bulk actions
+  - Image upload (Uploadthing)
+- [ ] Order management:
+  - Order processing
+  - Status updates
+  - Refund handling
+- [ ] User management:
+  - Customer list
+  - Admin privileges
+  - User actions
+
+### 5. Advanced Features [ ]
+
+- [ ] Real-time notifications
+- [ ] Email system (Resend):
+  - Order confirmations
+  - Shipping updates
+  - Password reset
+- [ ] Search optimization
+- [ ] Performance optimization:
+  - Image optimization
+  - Caching strategies
+  - API optimization
+- [ ] Analytics and reporting
+
+### 6. Testing and Deployment [ ]
+
+- [ ] Unit testing
+- [ ] Integration testing
+- [ ] E2E testing
+- [ ] Security audit
+- [ ] Production deployment:
+  - Environment setup
+  - CI/CD pipeline
+  - Monitoring
+  - Backup strategy
+
+### 7. Documentation [ ]
+
+- [ ] API documentation
+- [ ] User guide
+- [ ] Admin documentation
+- [ ] Deployment guide 
